@@ -2353,3 +2353,84 @@ org.eclipse.recommenders.utils.Logs$LogTraceException
 
 !ENTRY org.eclipse.m2e.logback.appender 2 0 2017-11-07 16:01:50.770
 !MESSAGE Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2017-11-07 16:06:25.597
+!MESSAGE Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2017-11-07 16:06:25.612
+!MESSAGE Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.wst.server.discovery 1 0 2017-11-07 16:06:27.081
+!MESSAGE already installed: org.eclipse.jst.server.generic.jonas4
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2017-11-07 16:13:22.514
+!MESSAGE Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2017-11-07 16:13:22.514
+!MESSAGE Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2017-11-07 16:13:54.986
+!MESSAGE Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2017-11-07 16:13:54.986
+!MESSAGE Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.wst.server.discovery 1 0 2017-11-07 16:14:02.122
+!MESSAGE already installed: org.eclipse.jst.server.generic.jonas4
+
+!ENTRY org.eclipse.wst.server.core 4 0 2017-11-07 16:15:04.001
+!MESSAGE Server Tomcat v8.0 Server at localhost was unable to start within 45 seconds. If the server requires more time, try increasing the timeout in the server editor.
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2017-11-07 16:16:38.645
+!MESSAGE Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2017-11-07 16:16:38.645
+!MESSAGE Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2017-11-07 16:16:38.660
+!MESSAGE Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.jdt.core 4 1006 2017-11-07 16:16:38.723
+!MESSAGE C:\Users\Jayanth\.m2\repository\com\niit\ShoppingCartBackEnd\0.0.1-SNAPSHOT\ShoppingCartBackEnd-0.0.1-SNAPSHOT.jar is not on its project's build path
+
+!ENTRY org.eclipse.jdt.core 4 1006 2017-11-07 16:16:38.738
+!MESSAGE C:\Users\Jayanth\.m2\repository\com\niit\ShoppingCartBackEnd\0.0.1-SNAPSHOT\ShoppingCartBackEnd-0.0.1-SNAPSHOT.jar is not on its project's build path
+
+!ENTRY org.eclipse.jdt.core 4 1006 2017-11-07 16:16:38.738
+!MESSAGE C:\Users\Jayanth\.m2\repository\com\niit\ShoppingCartBackEnd\0.0.1-SNAPSHOT\ShoppingCartBackEnd-0.0.1-SNAPSHOT.jar is not on its project's build path
+
+!ENTRY org.eclipse.jdt.core 4 1006 2017-11-07 16:16:38.738
+!MESSAGE C:\Users\Jayanth\.m2\repository\com\niit\ShoppingCartBackEnd\0.0.1-SNAPSHOT\ShoppingCartBackEnd-0.0.1-SNAPSHOT.jar is not on its project's build path
+
+!ENTRY org.eclipse.jdt.core 4 1006 2017-11-07 16:16:38.738
+!MESSAGE C:\Users\Jayanth\.m2\repository\com\niit\ShoppingCartBackEnd\0.0.1-SNAPSHOT\ShoppingCartBackEnd-0.0.1-SNAPSHOT.jar is not on its project's build path
+
+!ENTRY org.eclipse.jdt.core 4 1006 2017-11-07 16:16:38.738
+!MESSAGE C:\Users\Jayanth\.m2\repository\com\niit\ShoppingCartBackEnd\0.0.1-SNAPSHOT\ShoppingCartBackEnd-0.0.1-SNAPSHOT.jar is not on its project's build path
+
+!ENTRY org.eclipse.jdt.core 4 1006 2017-11-07 16:16:38.738
+!MESSAGE C:\Users\Jayanth\.m2\repository\com\niit\ShoppingCartBackEnd\0.0.1-SNAPSHOT\ShoppingCartBackEnd-0.0.1-SNAPSHOT.jar is not on its project's build path
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2017-11-07 16:16:40.373
+!MESSAGE Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2017-11-07 16:16:40.388
+!MESSAGE Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2017-11-07 16:16:42.029
+!MESSAGE Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2017-11-07 16:16:42.029
+!MESSAGE Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2017-11-07 16:16:45.014
+!MESSAGE Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2017-11-07 16:16:45.029
+!MESSAGE Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2017-11-07 16:17:12.592
+!MESSAGE Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2017-11-07 16:17:12.592
+!MESSAGE Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
