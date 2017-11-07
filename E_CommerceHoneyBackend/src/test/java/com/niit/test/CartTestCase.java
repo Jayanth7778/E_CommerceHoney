@@ -41,19 +41,18 @@ public class CartTestCase
 		
 		cartDAO =  (CartDAO) context.getBean("cartDAO");
 		
-		cart = (Cart)context.getBean("cart");
-		
+		cart = (Cart)context.getBean("cart");	
 	}
 	
-	
+	@Ignore
 	@Test
 	public void createCartTestCase() 
 	{
-
-
 		cart.setUser_id("Anirudh");
 		cart.setPrice(15000);
 		cart.setProduct_name("Moto G5 Plus");
+		cart.setQuantity(1);
+		cart.setStatus("Online");
 		
 		boolean flag = cartDAO.save(cart);
 		
@@ -64,7 +63,7 @@ public class CartTestCase
 	@Test
 	public void deleteCartTestCase()
 	{
-		boolean flag = cartDAO.deleteAllProductsInCart("Kiran");
+		boolean flag = cartDAO.deleteAllProductsInCart("Anirudh");
 		
 		assertEquals(true, flag);
 	}
