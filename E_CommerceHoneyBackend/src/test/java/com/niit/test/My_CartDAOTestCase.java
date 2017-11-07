@@ -7,6 +7,7 @@ import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
+import com.niit.config.DBConfig;
 import com.niit.dao.My_CartDAO;
 import com.niit.dao.ProductDAO;
 import com.niit.model.My_Cart;
@@ -16,7 +17,7 @@ public class My_CartDAOTestCase
 {
 
 	@Autowired
-	static AnnotationConfigApplicationContext context;
+	static DBConfig context;
 
 	@Autowired
 	Product product;
@@ -29,10 +30,11 @@ public class My_CartDAOTestCase
 	@Autowired
 	static My_Cart my_Cart;
 	
+	@SuppressWarnings("resource")
 	@BeforeClass
 	public static void initialize()
 	{
-		context = new AnnotationConfigApplicationContext();
+		AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext();
 		context.scan("com.niit");
 		context.refresh();
 		
@@ -42,7 +44,7 @@ public class My_CartDAOTestCase
 		
 	}
 	
-	@Test
+	/* @Test
 	public void createCartTestCase() 
 	{
 		my_Cart.setId("Anirudh");
@@ -60,7 +62,7 @@ public class My_CartDAOTestCase
 		boolean flag = my_CartDAO.deleteAllProductsInCart("Kiran");
 		
 		assertEquals(true, flag);
-	}
+	} */
 	
 
 }
