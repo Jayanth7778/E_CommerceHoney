@@ -17,6 +17,8 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 import com.niit.model.Address;
 import com.niit.model.Category;
 import com.niit.model.Contact;
+import com.niit.model.My_Cart;
+import com.niit.model.OrderTable;
 import com.niit.model.Product;
 import com.niit.model.Supplier;
 import com.niit.model.User;
@@ -70,6 +72,8 @@ public class DBConfig
 		sessionBuilder.addAnnotatedClass(Supplier.class);
 		sessionBuilder.addAnnotatedClass(Address.class);
 		sessionBuilder.addAnnotatedClass(Contact.class);
+		sessionBuilder.addAnnotatedClass(My_Cart.class);
+		sessionBuilder.addAnnotatedClass(OrderTable.class);
 		sessionBuilder.scanPackages("com.niit");
 
 		return sessionBuilder.buildSessionFactory();
