@@ -12,7 +12,7 @@ import com.niit.config.DBConfig;
 import com.niit.dao.OrderTableDAO;
 import com.niit.model.OrderTable;
 
-public class OrderTableDAOTestCase 
+public class OrderTableTestCase 
 {
 
 	@Autowired

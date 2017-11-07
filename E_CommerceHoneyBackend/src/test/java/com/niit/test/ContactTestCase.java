@@ -12,7 +12,7 @@ import com.niit.config.DBConfig;
 import com.niit.dao.ContactDAO;
 import com.niit.model.Contact;
 
-public class ContactDAOTestCase
+public class ContactTestCase
 {
 
 	@Autowired

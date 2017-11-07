@@ -12,7 +12,7 @@ import com.niit.config.DBConfig;
 import com.niit.dao.UserDAO;
 import com.niit.model.User;
 
-public class UserDAOTestCase
+public class UserTestCase
 {
 
 	@Autowired

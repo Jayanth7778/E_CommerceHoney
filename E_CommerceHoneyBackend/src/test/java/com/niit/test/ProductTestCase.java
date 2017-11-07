@@ -12,7 +12,7 @@ import com.niit.config.DBConfig;
 import com.niit.dao.ProductDAO;
 import com.niit.model.Product;
 
-public class ProductDAOTestCase
+public class ProductTestCase
 {
 
 	@Autowired

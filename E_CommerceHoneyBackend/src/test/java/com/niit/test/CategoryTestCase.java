@@ -12,7 +12,7 @@ import com.niit.config.DBConfig;
 import com.niit.dao.CategoryDAO;
 import com.niit.model.Category;
 
-public class CategoryDAOTestCase
+public class CategoryTestCase
 {
 
 	@Autowired

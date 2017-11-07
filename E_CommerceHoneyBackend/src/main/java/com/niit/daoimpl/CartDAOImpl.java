@@ -8,27 +8,27 @@ import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-import com.niit.dao.My_CartDAO;
-import com.niit.model.My_Cart;
+import com.niit.dao.CartDAO;
+import com.niit.model.Cart;
 
 @Repository("cartDAO")
 @Transactional
-public class My_CartDAOImpl implements My_CartDAO
+public class CartDAOImpl implements CartDAO
 {
 
 	@Autowired
 	private SessionFactory sessionFactory;
 
-	public My_CartDAOImpl(SessionFactory sessionFactory)
+	public CartDAOImpl(SessionFactory sessionFactory)
 	{
 		this.sessionFactory = sessionFactory;
 	}
 
-	public boolean save(My_Cart my_Cart)
+	public boolean save(Cart cart)
 	{
 		try 
 		{
-			sessionFactory.getCurrentSession().save(my_Cart);
+			sessionFactory.getCurrentSession().save(cart);
 		} 
 		catch (Exception e) 
 		{
@@ -39,11 +39,11 @@ public class My_CartDAOImpl implements My_CartDAO
 		return true;
 	}
 
-	public boolean update(My_Cart my_Cart) 
+	public boolean update(Cart cart) 
 	{
 		try
 		{
-			sessionFactory.getCurrentSession().update(my_Cart);
+			sessionFactory.getCurrentSession().update(cart);
 		} 
 		catch (Exception e)
 		{
@@ -55,7 +55,7 @@ public class My_CartDAOImpl implements My_CartDAO
 	}
 
 	@SuppressWarnings("unchecked")
-	public List<My_Cart> list(String userID)
+	public List<Cart> list(String userID)
 	{
 		return  sessionFactory.getCurrentSession().createQuery("from Cart where user_id=?").setString(0, userID).list();
 	}
@@ -80,10 +80,10 @@ public class My_CartDAOImpl implements My_CartDAO
 		return true;
 	}
 
-	public My_Cart getCartById(int id) 
+	public Cart getCartById(int id) 
 	{
 		
-		return 	(My_Cart)  sessionFactory.getCurrentSession().createQuery("from Cart where id = ?").setInteger(0, id).uniqueResult();
+		return 	(Cart)  sessionFactory.getCurrentSession().createQuery("from Cart where id = ?").setInteger(0, id).uniqueResult();
 	}
 
 	public boolean deleteAllProductsInCart(String user_id)

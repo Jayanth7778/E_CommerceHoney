@@ -12,7 +12,7 @@ import com.niit.config.DBConfig;
 import com.niit.dao.SupplierDAO;
 import com.niit.model.Supplier;
 
-public class SupplierDAOTestCase
+public class SupplierTestCase
 {
 
 	@Autowired

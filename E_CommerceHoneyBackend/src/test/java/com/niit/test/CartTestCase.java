@@ -3,17 +3,18 @@ package com.niit.test;
 import static org.junit.Assert.assertEquals;
 
 import org.junit.BeforeClass;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
 import com.niit.config.DBConfig;
-import com.niit.dao.My_CartDAO;
+import com.niit.dao.CartDAO;
 import com.niit.dao.ProductDAO;
-import com.niit.model.My_Cart;
+import com.niit.model.Cart;
 import com.niit.model.Product;
 
-public class My_CartDAOTestCase 
+public class CartTestCase 
 {
 
 	@Autowired
@@ -26,9 +27,9 @@ public class My_CartDAOTestCase
 	ProductDAO productDAO;
 	
 	@Autowired
-	static My_CartDAO my_CartDAO;
+	static CartDAO cartDAO;
 	@Autowired
-	static My_Cart my_Cart;
+	static Cart cart;
 	
 	@SuppressWarnings("resource")
 	@BeforeClass
@@ -38,31 +39,35 @@ public class My_CartDAOTestCase
 		context.scan("com.niit");
 		context.refresh();
 		
-		my_CartDAO =  (My_CartDAO) context.getBean("my_CartDAO");
+		cartDAO =  (CartDAO) context.getBean("cartDAO");
 		
-		my_Cart = (My_Cart)context.getBean("my_Cart");
+		cart = (Cart)context.getBean("cart");
 		
 	}
 	
-	/* @Test
+	
+	@Test
 	public void createCartTestCase() 
 	{
-		my_Cart.setId("Anirudh");
-		my_Cart.setPrice(15000);
-		my_Cart.setProduct_name("Moto G5 Plus");
+
+
+		cart.setUser_id("Anirudh");
+		cart.setPrice(15000);
+		cart.setProduct_name("Moto G5 Plus");
 		
-		boolean flag = my_CartDAO.save(my_Cart);
+		boolean flag = cartDAO.save(cart);
 		
 		assertEquals("createCartTestCase",true,flag);
 	}
 	
+	@Ignore
 	@Test
 	public void deleteCartTestCase()
 	{
-		boolean flag = my_CartDAO.deleteAllProductsInCart("Kiran");
+		boolean flag = cartDAO.deleteAllProductsInCart("Kiran");
 		
 		assertEquals(true, flag);
-	} */
+	}
 	
 
 }

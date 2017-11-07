@@ -12,7 +12,7 @@ import com.niit.config.DBConfig;
 import com.niit.dao.AddressDAO;
 import com.niit.model.Address;
 
-public class AddressDAOTestCase
+public class AddressTestCase
 {
 
 	@Autowired
