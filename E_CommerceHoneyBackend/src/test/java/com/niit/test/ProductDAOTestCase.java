@@ -36,12 +36,13 @@ public class ProductDAOTestCase {
 		
 	}
 	
+	@Ignore
 	@Test
 	public void createProductTestCase()
 	{
 		
 		product.setId("Moto_001");
-		product.setCategory_id("ELECTRONICS_001");
+		product.setCategory_id("Electronics");
 		product.setDescription("Brand new Moto G4 32gb white");
 		product.setName("Moto G4 Plus");
 		product.setPrice(14499);
@@ -54,14 +55,14 @@ public class ProductDAOTestCase {
 		
 	}
 	
-	/*
+	@Ignore
 	@Test
 	public void updateCategoryTestCase()
 	{
 		product.setId("Moto");
 		product.setName("Moto G4 Plus");
 		product.setDescription("Brand new Moto G4 32gb black");
-		product.setCategory_id("ELECTRONICS");
+		product.setCategory_id("Electronics");
 		product.setPrice(14999);
 		product.setSupplier_id("SP_Sangeetha");
 		product.setQuantity(4);
@@ -75,5 +76,5 @@ public class ProductDAOTestCase {
 	{
 		int actualSize = productDAO.list().size();
 		assertEquals(2, actualSize);
-	} */
+	} 
 }

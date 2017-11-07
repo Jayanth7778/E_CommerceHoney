@@ -42,9 +42,9 @@ public class CategoryDAOTestCase
 	@Test
 	public void createCategoryTestCase() 
 	{
-		category.setId("Mobiles1");
-		category.setName("Nokia");
-		category.setDescription("This category contains Nokia");
+		category.setId("Electronics");
+		category.setName("Mobiles");
+		category.setDescription("This category contains Mobiles");
 
 		boolean flag = categoryDAO.save(category);
 
