@@ -1425,3 +1425,27 @@ Caused by: org.eclipse.core.runtime.CoreException: One or more constraints have 
 2017-11-08 16:32:42,136 [Worker-72] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory D:\Jay\All workspaces\ECommerceHoney\E_CommerceHoneyFrontend\src\main\resources
 2017-11-08 16:32:42,138 [Worker-72] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
 2017-11-08 16:32:42,141 [Worker-72] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory D:\Jay\All workspaces\ECommerceHoney\E_CommerceHoneyFrontend\src\test\resources
+2017-11-08 16:39:17,944 [Worker-82] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+2017-11-08 16:39:17,965 [Worker-82] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory D:\Jay\All workspaces\ECommerceHoney\E_CommerceHoneyFrontend\src\main\resources
+2017-11-08 16:39:17,968 [Worker-82] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+2017-11-08 16:39:17,971 [Worker-82] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory D:\Jay\All workspaces\ECommerceHoney\E_CommerceHoneyFrontend\src\test\resources
+2017-11-08 16:39:38,267 [Worker-82] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+2017-11-08 16:39:38,271 [Worker-82] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory D:\Jay\All workspaces\ECommerceHoney\E_CommerceHoneyFrontend\src\main\resources
+2017-11-08 16:39:38,274 [Worker-82] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+2017-11-08 16:39:38,276 [Worker-82] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory D:\Jay\All workspaces\ECommerceHoney\E_CommerceHoneyFrontend\src\test\resources
+2017-11-08 16:40:20,787 [Worker-82] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+2017-11-08 16:40:20,789 [Worker-82] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory D:\Jay\All workspaces\ECommerceHoney\E_CommerceHoneyFrontend\src\main\resources
+2017-11-08 16:40:20,792 [Worker-82] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+2017-11-08 16:40:20,795 [Worker-82] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory D:\Jay\All workspaces\ECommerceHoney\E_CommerceHoneyFrontend\src\test\resources
+2017-11-08 16:40:55,571 [Worker-83] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+2017-11-08 16:40:55,574 [Worker-83] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory D:\Jay\All workspaces\ECommerceHoney\E_CommerceHoneyFrontend\src\main\resources
+2017-11-08 16:40:55,577 [Worker-83] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+2017-11-08 16:40:55,580 [Worker-83] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory D:\Jay\All workspaces\ECommerceHoney\E_CommerceHoneyFrontend\src\test\resources
+2017-11-08 16:41:11,381 [Worker-73] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+2017-11-08 16:41:11,384 [Worker-73] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory D:\Jay\All workspaces\ECommerceHoney\E_CommerceHoneyFrontend\src\main\resources
+2017-11-08 16:41:11,388 [Worker-73] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+2017-11-08 16:41:11,391 [Worker-73] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory D:\Jay\All workspaces\ECommerceHoney\E_CommerceHoneyFrontend\src\test\resources
+2017-11-08 16:43:19,233 [Worker-84] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+2017-11-08 16:43:19,236 [Worker-84] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory D:\Jay\All workspaces\ECommerceHoney\E_CommerceHoneyFrontend\src\main\resources
+2017-11-08 16:43:19,242 [Worker-84] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+2017-11-08 16:43:19,246 [Worker-84] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory D:\Jay\All workspaces\ECommerceHoney\E_CommerceHoneyFrontend\src\test\resources

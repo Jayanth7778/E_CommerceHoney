@@ -34,7 +34,7 @@
 	</div>						
 	<div class="row">
 	<div>
-	<!--  
+	 
 	<c:if test="${isUserLoggedIn=='true'}">
 	<a href="myCart-add/${product.id}" class="btn btn-success">
 		Add to cart <i class="fa fa-cart-plus" aria-hidden="true"></i>
@@ -49,7 +49,7 @@
 		<a href="Login" class="btn btn-success">
 		Login to add to cart <i class="fa fa-cart-plus" aria-hidden="true"></i>
 		</a>
-	</c:if> -->
+	</c:if> 
 
 	</div>
 	</div>						
