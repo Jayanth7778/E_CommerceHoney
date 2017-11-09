@@ -71,6 +71,7 @@ tmp/
 *~.nib
 local.properties
 .settings/
+.plugins
 .loadpath
 .recommenders
 
