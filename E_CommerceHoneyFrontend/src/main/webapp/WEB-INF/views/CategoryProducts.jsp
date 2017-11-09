@@ -23,7 +23,7 @@
 	<div class="h3">${product.name}</div>
 	</div>
 	<div class="panel-body">
-		<img height="220px" width="250px" src="<c:url value="/resources/img/${product.id}.jpg" />" alt="${product.name}" />
+		<img height="220px" width="250px" src="<c:url value="/resources/Images/${product.id}.jpg" />" alt="${product.name}" />
 	</div>
 	<div class="panel-footer">
 	<div class="row">
@@ -35,7 +35,7 @@
 	<div class="row">
 	<div>
 	<c:if test="${isUserLoggedIn=='true'}"> 
-		<a href="myCart-add/${product.id}" class="btn btn-success">Add to cart <i class="fa fa-cart-plus" aria-hidden="true"></i>
+		<a href="cart-add/${product.id}" class="btn btn-success">Add to cart <i class="fa fa-cart-plus" aria-hidden="true"></i>
 		</a>
 	</c:if>
 									

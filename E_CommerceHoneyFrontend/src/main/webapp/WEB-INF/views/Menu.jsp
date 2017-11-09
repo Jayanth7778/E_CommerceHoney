@@ -16,7 +16,7 @@
 		<span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span>
 		</button>	
 		<a href="Home" class="navbar-brand">
-			<img src="<c:url value="/resources/images/mkskart.jpg"/>" style="max-height: 50px; margin-top: -15px;" alt="logo" />
+			<img src="<c:url value="/resources/Carousel-Images/design-logo.jpg"/>" style="max-height: 50px; margin-top: -15px;" alt="logo" />
 		</a>
 	</div>
 	<div class="collapse navbar-collapse" id="navbar-collapse">

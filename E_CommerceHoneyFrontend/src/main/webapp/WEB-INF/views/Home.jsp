@@ -36,11 +36,11 @@
 	</c:if>
 	
 	<c:if test="${isUserCheckedOut=='true'}"> 
-		<jsp:include page="User/CheckOut.jsp"></jsp:include>
+		<jsp:include page="User/checkOut.jsp"></jsp:include>
 	</c:if>
 	
 	<c:if test="${isUserClickedCart=='true'}">
-		<jsp:include page="User/Cart.jsp"></jsp:include>
+		<jsp:include page="User/cart.jsp"></jsp:include>
 	</c:if>
 
 	<c:if test="${isAdminClickedCategories=='true' }">

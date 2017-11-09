@@ -58,7 +58,7 @@ public class HomeController
 	{
 		ModelAndView mv = new ModelAndView("Home");
 		
-		mv.addObject("message", "Welcome to Online Shopping Cart! <br>");
+		mv.addObject("message", "Welcome to Online Honey Cart! <br>");
 		mv.addObject("isUserAtHomePage", "true");
 
 		List<Category> categoryList = categoryDAO.list();
@@ -82,7 +82,7 @@ public class HomeController
 	{
 		ModelAndView mv = new ModelAndView("Home");
 		
-		mv.addObject("message", "Welcome to Online Shopping Cart! <br>");
+		mv.addObject("message", "Welcome to Online Honey Cart! <br>");
 		mv.addObject("isUserAtHomePage", "true");
 		
 		List<Category> categoryList = categoryDAO.list();

@@ -23,27 +23,27 @@
 	<div class="carousel-inner">
 	<div class="item active">
 		<a href="showProductByCategory/Samsung">
-		<img src="<c:url value="/resources/images/nokia8.jpg" />" alt="Image 1" style="width:100%;">
+		<img src="<c:url value="/resources/Carousel-Images/nokia8.jpg" />" alt="Image 1" style="width:100%;">
 		</a>
 	</div>						
 	<div class="item">
 		<a href="viewProduct/Sony">
-		<img src="<c:url value="/resources/images/tv.jpg" />" alt="Image 2" style="width:100%;">
+		<img src="<c:url value="/resources/Carousel-Images/tv.jpg" />" alt="Image 2" style="width:100%;">
 		</a>
 	</div>						
 	<div class="item">
 		<a href="showProductByCategory/HP">
-		<img src="<c:url value="/resources/images/macbook.jpg" />" alt="Image 3" style="width:100%;">
+		<img src="<c:url value="/resources/Carousel-Images/macbook.jpg" />" alt="Image 3" style="width:100%;">
 		</a>
 	</div>	
 	<div class="item">
 		<a href="showProductByCategory/LG">
-		<img src="<c:url value="/resources/images/earphones.jpg" />" alt="Image 4" style="width:100%;">
+		<img src="<c:url value="/resources/Carousel-Images/earphones.jpg" />" alt="Image 4" style="width:100%;">
 		</a>
 	</div>			
 	<div class="item">
 		<a href="showProductByCategory/AC">
-		<img src="<c:url value="/resources/images/ac.jpg" />" alt="Image 5" style="width:100%;">
+		<img src="<c:url value="/resources/Carousel-Images/ac.jpg" />" alt="Image 5" style="width:100%;">
 		</a>
 	</div>
 	</div>
