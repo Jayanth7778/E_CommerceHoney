@@ -71,6 +71,6 @@ public class SupplierTestCase
 	{
 		int actualSize = supplierDAO.list().size();
 		assertEquals(3, actualSize);
-	}
+	} 
 
 }

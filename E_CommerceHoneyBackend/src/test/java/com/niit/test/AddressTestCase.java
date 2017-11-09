@@ -80,6 +80,6 @@ public class AddressTestCase
 	 {
 		int actualSize = addressDAO.list().size();
 		assertEquals(2, actualSize);
-	}
+	} 
 
 }

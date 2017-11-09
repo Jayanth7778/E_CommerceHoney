@@ -38,7 +38,6 @@ public class OrderTableTestCase
 		
 	}
 	
-	
 	@Ignore
 	@Test
 	public void createOrderTableTestCase()
