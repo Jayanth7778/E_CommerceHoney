@@ -69,9 +69,9 @@ tmp/
 *.bak
 *.swp
 *~.nib
+*.plugins
 local.properties
 .settings/
-.plugins
 .loadpath
 .recommenders
 

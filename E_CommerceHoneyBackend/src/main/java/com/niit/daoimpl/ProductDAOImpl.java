@@ -20,18 +20,16 @@ public class ProductDAOImpl implements ProductDAO
 	@Autowired
 	private SessionFactory sessionFactory;
 
-	// write user defined constructor with one parameter i.e., sessionFactory
-
 	public ProductDAOImpl(SessionFactory sessionFactory) 
 	{
 		this.sessionFactory = sessionFactory;
 	}
 
-	public boolean saveOrUpdate(Product product)
+	public boolean save(Product product)
 	{
 		try
 		{
-			sessionFactory.getCurrentSession().saveOrUpdate(product);
+			sessionFactory.getCurrentSession().save(product);
 		}
 		catch (Exception e)
 		{
@@ -41,8 +39,21 @@ public class ProductDAOImpl implements ProductDAO
 		}
 		return true;
 	}
-
 	
+	public boolean update(Product product)
+	{
+		try
+		{
+			sessionFactory.getCurrentSession().update(product);
+		}
+		catch (Exception e)
+		{
+			
+			e.printStackTrace();
+			return false;
+		}
+		return true;
+	}
 
 	@SuppressWarnings("unchecked")
 	public List<Product> list()
@@ -80,13 +91,10 @@ public class ProductDAOImpl implements ProductDAO
 	@SuppressWarnings("unchecked")
 	public List<Product> getAllProductsByCategoryId(String categoryId)
 	{
-		
 		String hql = "from Product where category_Id=?";
 		Query query = sessionFactory.getCurrentSession().createQuery(hql);
 		query.setString(0, categoryId);
 		return query.list();
-
-		// TODO Auto-generated method stub
 	}
 
 	@SuppressWarnings("unchecked")
@@ -94,4 +102,5 @@ public class ProductDAOImpl implements ProductDAO
 	{
 		return sessionFactory.getCurrentSession().createQuery("from Product where supplier_Id = ?").setString(0, supplierId).list();
 	}
+
 }
