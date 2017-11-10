@@ -24,7 +24,6 @@ public class FileUtil
 		Util.removeComman(fileName);
 		if (!file.isEmpty())
 		{
-
 			try 
 			{
 				byte[] bytes = file.getBytes();
@@ -52,7 +51,6 @@ public class FileUtil
 
 	public void fileCopy(String src, String dest)
 	{
-
 		Path sourcePath = Paths.get(src);
 		Path destinationPath = Paths.get(dest);
 

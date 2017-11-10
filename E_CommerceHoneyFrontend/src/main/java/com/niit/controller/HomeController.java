@@ -2,6 +2,7 @@ package com.niit.controller;
 
 import java.util.Date;
 import java.util.List;
+
 import javax.servlet.http.HttpSession;
 
 import org.slf4j.Logger;
@@ -13,11 +14,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.niit.dao.CategoryDAO;
-import com.niit.dao.CartDAO;
+import com.niit.dao.My_CartDAO;
 import com.niit.dao.ProductDAO;
 import com.niit.dao.SupplierDAO;
 import com.niit.model.Category;
-import com.niit.model.Cart;
+import com.niit.model.My_Cart;
 import com.niit.model.Product;
 import com.niit.model.Supplier;
 
@@ -48,10 +49,10 @@ public class HomeController
 	SupplierDAO supplierDAO;
 
 	@Autowired
-	Cart myCart;
+	My_Cart myCart;
 
 	@Autowired
-	CartDAO myCartDAO;
+	My_CartDAO myCartDAO;
 
 	@RequestMapping("/")
 	public ModelAndView goToHome()
@@ -60,7 +61,7 @@ public class HomeController
 		
 		mv.addObject("message", "Welcome to Online Honey Cart! <br>");
 		mv.addObject("isUserAtHomePage", "true");
-
+		
 		List<Category> categoryList = categoryDAO.list();
 		session.setAttribute("categoryList", categoryList);
 		session.setAttribute("category", category);
@@ -71,7 +72,8 @@ public class HomeController
 
 		List<Supplier> supplierList = supplierDAO.list();
 		session.setAttribute("supplierList", supplierList);
-		session.setAttribute("supplier", supplier);	
+		session.setAttribute("supplier", supplier);
+		
 		return mv;
 	}
 
@@ -82,7 +84,7 @@ public class HomeController
 	{
 		ModelAndView mv = new ModelAndView("Home");
 		
-		mv.addObject("message", "Welcome to Online Honey Cart! <br>");
+		mv.addObject("message", "Welcome to Online Shopping Cart! <br>");
 		mv.addObject("isUserAtHomePage", "true");
 		
 		List<Category> categoryList = categoryDAO.list();
@@ -96,6 +98,7 @@ public class HomeController
 		List<Supplier> supplierList = supplierDAO.list();
 		session.setAttribute("supplierList", supplierList);
 		session.setAttribute("supplier", supplier);
+
 		return mv;
 	}
 
@@ -107,7 +110,8 @@ public class HomeController
 		model.addAttribute("isUserAtHomePage", "false");
 
 		Long currentTime = System.currentTimeMillis();
-		Date currentDate = new Date(currentTime);		
+		Date currentDate = new Date(currentTime);
+		
 		return "Home";
 	}
 	
@@ -117,8 +121,10 @@ public class HomeController
 		log.debug("Signout Initiated");
 		
 		ModelAndView mv = new ModelAndView("redirect:/");
+		
 		session.setAttribute("isUserLoggedIn", "false");
 		session.setAttribute("isAdmin", "false");
+
 		return mv;
 	}
 	
@@ -126,7 +132,8 @@ public class HomeController
 	public String registerPage(Model model)
 	{
 		model.addAttribute("isUserClickedRegistration", "true");
-		model.addAttribute("isUserAtHomePage", "false");		
+		model.addAttribute("isUserAtHomePage", "false");
+		
 		return "Home";
 	}
 
@@ -134,6 +141,7 @@ public class HomeController
 	public String mainPage(Model model) 
 	{
 		model.addAttribute("isUserClickedMain", "true");
+		
 		return "Home";
 	}
 
@@ -141,7 +149,8 @@ public class HomeController
 	public String contactUsPage(Model model)
 	{
 		model.addAttribute("isUserClickedContactUs", "true");
-		model.addAttribute("isUserAtHomePage", "false");		
+		model.addAttribute("isUserAtHomePage", "false");
+		
 		return "Home";
 	}
 }

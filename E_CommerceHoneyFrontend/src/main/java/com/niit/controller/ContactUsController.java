@@ -60,7 +60,8 @@ public class ContactUsController
 			{
 				mv.addObject("contactUsMessage", "Failed to delete");
 			}
-			log.debug("Ending of delete Contact Us Message");	
+			log.debug("Ending of delete Contact Us Message");
+
 			return mv;
 		}
 

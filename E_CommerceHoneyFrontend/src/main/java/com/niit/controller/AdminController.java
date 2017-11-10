@@ -30,7 +30,7 @@ public class AdminController
 	@Autowired ProductDAO productDAO;
 	@Autowired Contact contact;
 	@Autowired ContactDAO contactDAO;
-	
+
 	private static Logger log = LoggerFactory.getLogger(AdminController.class); 
 	
 
@@ -38,8 +38,8 @@ public class AdminController
 	public ModelAndView manageCategories()
 	{
 		log.debug("Starting of the method manageCategories");
-		
 		ModelAndView mv = new ModelAndView("Home");
+		
 		mv.addObject("isAdminClickedCategories", "true");
 		mv.addObject("isAdmin", "true");
 		
@@ -47,8 +47,7 @@ public class AdminController
 		session.setAttribute("category", category);
 		session.setAttribute("isUserLoggedIn", "false");
 		
-		log.debug("Ending of the method manageCategories");
-		
+		log.debug("Ending of the method manageCategories");		
 		return mv;
 	}
 	
@@ -71,6 +70,27 @@ public class AdminController
 		return mv;
 	}
 
+	
+	
+	/*@RequestMapping("/manageProducts")
+	public String manageProducts(Model model)
+	 {
+		log.debug("Starting of the method manageProducts");
+		model.addAttribute("isAdminClickedProducts", "true");
+		model.addAttribute("isAdmin", "true");
+		model.addAttribute("product", product);
+		model.addAttribute("productList", productDAO.list());
+		model.addAttribute("supplier", supplier);
+		model.addAttribute("supplierList", supplierDAO.list());
+		model.addAttribute("category", category);
+		model.addAttribute("categoryList", categoryDAO.list());
+		log.debug("Ending of the method manageProducts");
+		return "Home";
+	}*/
+
+	
+	
+	
 	@RequestMapping("/manageContactUs")
 	public ModelAndView manageContactUs()
 	{

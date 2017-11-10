@@ -22,11 +22,12 @@ import com.niit.dao.SupplierDAO;
 import com.niit.model.Category;
 import com.niit.model.Product;
 import com.niit.model.Supplier;
+import com.niit.util.FileUtil;
+import com.niit.util.Util;
 
 @Controller
 public class ProductController
 {
-
 	private static Logger log = LoggerFactory.getLogger(ProductController.class);
 
 	@Autowired
@@ -50,7 +51,7 @@ public class ProductController
 	@Autowired
 	HttpSession session;
 
-	private String path = "//E_CommerceHoneyFrontend//src//main//webapp//resources//Carousel-Images//";
+	private String path = "//ShoppingCartFrontEnd//src//main//webapp//resources//img";
 	
 	@PostMapping("/manage-product-add")
 	public String addPorduct(@ModelAttribute("product") Product product, @RequestParam("image") MultipartFile file,Model model)
@@ -59,17 +60,24 @@ public class ProductController
 		
 		Category category = categoryDAO.getCategoryByName(product.getCategory().getName());
 		Supplier supplier = supplierDAO.getSupplierByName(product.getSupplier().getName());
+
 		product.setCategory(category);
-		product.setCategory_id(category.getId());
+		product.setCategory_id(category.getId());	
 		product.setSupplier(supplier);
-		product.setSupplier_id(supplier.getId());
+		product.setSupplier_id(supplier.getId());		
+		product.setId(Util.removeComman(product.getId()));
 		
+		productDAO.saveOrUpdate(product);
+
+		FileUtil.upload(path, file, product.getId() + ".jpg");
+
 		model.addAttribute("isAdminClickedProducts", "true");
 		model.addAttribute("isAdmin", "true");
 		model.addAttribute("productList", this.productDAO.list());
 		model.addAttribute("product", new Product());
 		model.addAttribute("categoryList", this.categoryDAO.list());
 		model.addAttribute("category", new Category());
+		
 		log.debug("Ending of the method add Product");
 		
 		return "Home";
@@ -149,9 +157,11 @@ public class ProductController
 		log.debug("Starting of the method getSelectedProduct");
 		
 		ModelAndView mv = new ModelAndView("redirect:/");
+		
 		redirectAttributes.addFlashAttribute("selectedProduct", productDAO.getProductById(id));
 		
 		log.debug("ending of method getSelectedProduct");
+		
 		return mv;
 	}
 	

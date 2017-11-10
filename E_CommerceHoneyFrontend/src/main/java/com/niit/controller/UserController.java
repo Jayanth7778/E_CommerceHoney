@@ -51,10 +51,9 @@ public class UserController
 	@RequestMapping("/validate")
 	public ModelAndView login(@RequestParam("id") String id, @RequestParam("password") String password) 
 	{
-
 		ModelAndView mv = new ModelAndView("/Home");
-		log.debug("Starting of the method login");
 		
+		log.debug("Starting of the method login");
 		log.info("You are login with id : "+id);
 		
 		if (userDAO.validate(id, password) == true) 
@@ -76,11 +75,11 @@ public class UserController
 				mv.addObject("isAdmin", "true");
 				
 				session.setAttribute("role", "ROLE_ADMIN");
+
 			}
 			else
 			{
 				log.debug("You are a customer");
-				
 				mv.addObject("isAdmin", "false");
 				
 				session.setAttribute("role", "ROLE_USER");
@@ -94,14 +93,13 @@ public class UserController
 		}
 		
 		log.debug("Ending of the method login");
-		
 		return mv;
 
 	}
 	
 	@RequestMapping("/Register")
-	public ModelAndView register(@RequestParam("uId") String id, @RequestParam("uPassword") String password, @RequestParam("uName") String name, @RequestParam("uContact") String contact) {
-
+	public ModelAndView register(@RequestParam("uId") String id, @RequestParam("uPassword") String password, @RequestParam("uName") String name, @RequestParam("uContact") String contact) 
+	{
 		ModelAndView mv = new ModelAndView("/Home");
 		
 		log.debug("Starting of the method register");
@@ -112,7 +110,6 @@ public class UserController
 		user.setPassword(password);
 		user.setContact(contact);
 		user.setRole("ROLE_USER");
-		
 		
 		log.info("You are signing up with username : "+id);
 		
@@ -125,19 +122,16 @@ public class UserController
 			mv.addObject("categoryList", categoryDAO.list());
 			mv.addObject("category", categoryDAO);
 			mv.addObject("supplierList", supplierDAO.list());
-			mv.addObject("supplier", supplierDAO);
+			mv.addObject("supplier", supplierDAO);			
 		}
 		else
 		{
 			log.debug("Error");
-			
 			mv.addObject("message", "invalid credentials");
-		}
-		
+		}	
 		log.debug("Ending of the method login");
 		
 		return mv;
-
 	}
 
 }

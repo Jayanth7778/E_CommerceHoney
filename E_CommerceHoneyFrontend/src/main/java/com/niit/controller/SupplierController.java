@@ -1,6 +1,7 @@
 package com.niit.controller;
 
 import java.util.List;
+
 import javax.servlet.http.HttpSession;
 
 import org.slf4j.Logger;
@@ -20,7 +21,6 @@ import com.niit.model.Supplier;
 @Controller
 public class SupplierController
 {
-
 	private static Logger log = LoggerFactory.getLogger(SupplierController.class);
 
 	@Autowired
@@ -60,20 +60,18 @@ public class SupplierController
 			mv.addObject("sMessage", "Supplier creation success with id : " + id);
 
 		}
-
 		List<Supplier> supplierList = supplierDAO.list();
 		session.setAttribute("supplierList", supplierList);
 		session.setAttribute("supplier", supplier);
 
 		log.debug("Ending of create supplier");
-		
 		return mv;
+
 	}
 
 	@RequestMapping("/manage-supplier-delete/{id}")
 	public ModelAndView deleteSupplier(@PathVariable("id") String id) 
 	{
-
 		log.debug("Starting of delete Supplier");
 		log.info("You are about to delete a supplier with id : " + id);
 
@@ -107,12 +105,15 @@ public class SupplierController
 	{
 		log.debug("Starting of editSupplier");
 		log.info("You are about to edit a supplier with id : " + id);
+
 		supplier = supplierDAO.getSupplierById(id);
 
 		ModelAndView mv = new ModelAndView("redirect:/manageSuppliers");
 		mv.addObject("selectedSupplier", supplier);
+		
 		session.setAttribute("selectedSupplier", supplier);
 		session.setAttribute("isAdminClickedManageSupplierEdit", "true");
+
 		log.debug("Ending of editSupplier");
 
 		return mv;
@@ -122,9 +123,10 @@ public class SupplierController
 	public ModelAndView updateSupplier(@RequestParam("cId") String id, @RequestParam("cName") String name,@RequestParam("cAddress") String address)
 	{
 		log.debug("Starting of updateSupplier");
+		
 		ModelAndView mv = new ModelAndView("redirect:/manageSuppliers");
+		
 		session.setAttribute("isAdminClickedManageSupplierEdit", "false");
-
 		supplier.setId(id);
 		supplier.setName(name);
 		supplier.setAddress(address);
@@ -146,6 +148,7 @@ public class SupplierController
 
 		session.setAttribute("isAdminClickedManageSupplierEdit", "false");
 		log.debug("Ending of updateSupplier");
+		
 		return mv;
 	}
 

@@ -7,7 +7,6 @@ public class Util
 		return field.replace(",", "");
 	}
 	
-	
 	public static void main(String[] args)
 	{
 		

@@ -9,16 +9,18 @@
 
 <body>
 	<div class="container">	
-	<div class="container">
+	<div class="container">	
 	<div class="col-xs-offset-5 col-xs-2" style="padding-left: 0px; padding-right: 0px;">
-		<img src="<c:url value="/resources/images/checkMark.jpg" />" class="img-responsive">
+		<img src="<c:url value="/resources/Carousel-Images/checkMark.jpg" />" class="img-responsive">
+	</div>		
 	</div>
-	</div>
-	<div class="h2 text-success text-center">We are glad to see you again..!! You are cool!</div>
+	<div class="h2 text-success text-center">You are cool!</div>
 	<div class="h2 text-center">Thank you for checking out. The amount of <b class="text-success"><i class="fa fa-inr" aria-hidden="true"></i> ${totalAmount}</b> has been received.</div>
 	<div class="h2 text-center">The product will be delivered in 2-5 working days.</div>
-		<img src="<c:url value="/resources/images/Thank You.gif" />" alt="Thank You GIF" class="img-responsive center-block" />
+		<img src="<c:url value="/resources/Carousel-Images/Thank You.gif" />" alt="Thank You GIF" class="img-responsive center-block" />
+		<br>
+		<img src="<c:url value="/resources/Carousel-Images/Visit again.gif" />" alt="Visit again GIF" class="img-responsive center-block" />
 	</div>
+	
 </body>
-
 </html>

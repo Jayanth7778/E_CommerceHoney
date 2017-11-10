@@ -16,18 +16,17 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.niit.dao.CategoryDAO;
-import com.niit.dao.CartDAO;
+import com.niit.dao.My_CartDAO;
 import com.niit.dao.ProductDAO;
 import com.niit.dao.SupplierDAO;
 import com.niit.model.Category;
-import com.niit.model.Cart;
+import com.niit.model.My_Cart;
 import com.niit.model.Product;
 import com.niit.model.Supplier;
 
 @Controller
 public class SpringSecurityController 
 {
-
 	public static Logger log = LoggerFactory.getLogger(SpringSecurityController.class);
 
 	@Autowired
@@ -50,18 +49,18 @@ public class SpringSecurityController
 	private Product product;
 
 	@Autowired
-	private CartDAO cartDAO;
+	private My_CartDAO cartDAO;
 
 	@Autowired
-	private Cart myCart;
+	private My_Cart myCart;
 
 	@RequestMapping(value = "/loginError", method = RequestMethod.GET)
 	public String loginError(Model model)
 	{
 		log.debug("Starting of the method loginError");
-		session.setAttribute("errorLoginMessage", "Invalid Credentials.  Please try again.");		
+		session.setAttribute("errorLoginMessage", "Invalid Credentials.  Please try again.");
+			
 		log.debug("Ending of the method loginError");
-		
 		return "redirect:/Login";
 	}
 
@@ -70,8 +69,8 @@ public class SpringSecurityController
 	{
 		log.debug("Starting of the method accessDenied");
 		model.addAttribute("errorMessage", "You are not authorized to access this page");
+
 		log.debug("Ending of the method accessDenied");
-		
 		return "Home";
 	}
 
@@ -85,11 +84,12 @@ public class SpringSecurityController
 		mv.addObject("categoryList", categoryDAO.list());
 		mv.addObject("category", category);
 		mv.addObject("supplierList", supplierDAO.list());
-		mv.addObject("supplier", supplier);
+		mv.addObject("supplier", supplier);		
 		mv.addObject("productList", productDAO.list());
-		mv.addObject("product", product);
+		mv.addObject("product", product);		
 		
 		String userID = auth.getName();
+		
 		session.setAttribute("loggedInUser", userID);
 		session.setAttribute("loggedInUserID", userID);
 
@@ -102,7 +102,6 @@ public class SpringSecurityController
 			session.setAttribute("isAdmin", true);
 			
 			mv.addObject("isUserAtHomePage", "false");
-
 		} 
 		else 
 		{
@@ -132,12 +131,13 @@ public class SpringSecurityController
 
 	@RequestMapping("/secure_logout")
 	public ModelAndView secureLogout()
-	{	
+	{
+		
 		session.invalidate();
 
 		ModelAndView mv = new ModelAndView("redirect:/Login");
 
-		session.setAttribute("category", category);
+		session.setAttribute("category", category); // domain object names
 		session.setAttribute("product", product);
 		session.setAttribute("supplier", supplier);
 		session.setAttribute("categoryList", categoryDAO.list());
@@ -147,4 +147,5 @@ public class SpringSecurityController
 		return mv;
 
 	}
+
 }

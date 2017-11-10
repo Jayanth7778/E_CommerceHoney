@@ -41,8 +41,8 @@ public class CategoryController
 	public ModelAndView createCategory(@RequestParam("cId") String id, @RequestParam("cName") String name,@RequestParam("cDescription") String description)
 	{
 		log.debug("Starting of create category");
-		
 		ModelAndView mv = new ModelAndView("Home");
+
 		category.setId(id);
 		category.setName(name);
 		category.setDescription(description);
@@ -74,13 +74,11 @@ public class CategoryController
 
 	}
 
-	//@PathVariable
 	@RequestMapping("/manage-category-delete/{id}")
 	public ModelAndView deleteCategory(@PathVariable("id") String id)
 	{
 		
 		log.debug("Starting of delete Category");
-		
 		log.info("You are about to delete a category with id : " + id);
 		
 		ModelAndView mv = new ModelAndView("redirect:/manageCategories");
@@ -90,7 +88,6 @@ public class CategoryController
 		{
 			log.debug("Few products are there under this category, you cannot delete!");
 			session.setAttribute("categoryMessage", "There are "+noOfProducts+" products under this "+id+" category, you cannot delete!");
-			
 			return mv;
 		}
 		
@@ -115,13 +112,15 @@ public class CategoryController
 	{
 		log.debug("Starting of editCategory");
 		log.info("You are about to edit a category with id : " + id);
-		category = categoryDAO.getCategoryById(id);
 		
+		category = categoryDAO.getCategoryById(id);
+
 		ModelAndView mv = new ModelAndView("redirect:/manageCategories");
 		session.setAttribute("isAdminClickedManageCategoryEdit", "true");
 		
 		mv.addObject("selectedCategory", category);		
 		session.setAttribute("selectedCategory", category);	
+		
 		log.debug("Ending of editCategory");
 
 		return mv;
@@ -151,8 +150,8 @@ public class CategoryController
 		{
 			categoryDAO.update(category);
 			mv.addObject("cMessage", "Category updated success with id : " + id);
-		}
 
+		}		
 		session.setAttribute("isAdminClickedManageCategoryEdit", "false");
 		log.debug("Ending of updateCategory");
 		
