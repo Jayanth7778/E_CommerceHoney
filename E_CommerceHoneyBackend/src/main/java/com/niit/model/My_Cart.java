@@ -12,7 +12,7 @@ import org.springframework.stereotype.Component;
 @Entity
 @Table(name = "My_cart")
 @Component
-public class Cart
+public class My_Cart
 {
 	
 	@Id

@@ -25,11 +25,11 @@ public class ProductDAOImpl implements ProductDAO
 		this.sessionFactory = sessionFactory;
 	}
 
-	public boolean save(Product product)
+	public boolean saveOrUpdate(Product product)
 	{
 		try
 		{
-			sessionFactory.getCurrentSession().save(product);
+			sessionFactory.getCurrentSession().saveOrUpdate(product);
 		}
 		catch (Exception e)
 		{
@@ -40,21 +40,6 @@ public class ProductDAOImpl implements ProductDAO
 		return true;
 	}
 	
-	public boolean update(Product product)
-	{
-		try
-		{
-			sessionFactory.getCurrentSession().update(product);
-		}
-		catch (Exception e)
-		{
-			
-			e.printStackTrace();
-			return false;
-		}
-		return true;
-	}
-
 	@SuppressWarnings("unchecked")
 	public List<Product> list()
 	{

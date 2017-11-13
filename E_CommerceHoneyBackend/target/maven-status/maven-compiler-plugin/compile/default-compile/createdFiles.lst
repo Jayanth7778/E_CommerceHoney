@@ -6,7 +6,6 @@ com\niit\daoimpl\OrderTableDAOImpl.class
 com\niit\model\Category.class
 com\niit\model\Contact.class
 com\niit\daoimpl\AddressDAOImpl.class
-com\niit\dao\CartDAO.class
 com\niit\config\DBConfig.class
 com\niit\dao\CategoryDAO.class
 com\niit\dao\SupplierDAO.class
@@ -19,7 +18,5 @@ com\niit\model\OrderTable.class
 com\niit\dao\ProductDAO.class
 com\niit\daoimpl\ContactDAOImpl.class
 com\niit\dao\ContactDAO.class
-com\niit\daoimpl\CartDAOImpl.class
 com\niit\daoimpl\CategoryDAOImpl.class
 com\niit\daoimpl\UserDAOImpl.class
-com\niit\model\Cart.class

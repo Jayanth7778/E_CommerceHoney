@@ -7,9 +7,7 @@ import com.niit.model.Product;
 public interface ProductDAO 
 {
 
-	public boolean save(Product product);
-	
-	public boolean update(Product product);
+	public boolean saveOrUpdate(Product product);
 
 	public boolean delete(String id);
 
@@ -18,8 +16,10 @@ public interface ProductDAO
 	public Product getProductById(String id);
 	
 	public List<Product> getAllProductsByCategoryId(String categoryId);
+	
 	public List<Product> getAllProductsBySupplierId(String supplierId);
 	
-	public Product getProductByName(String name);	
+	public Product getProductByName(String name);
+	
 	
 }

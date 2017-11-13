@@ -5,4 +5,3 @@ com\niit\test\OrderTableTestCase.class
 com\niit\test\ProductTestCase.class
 com\niit\test\SupplierTestCase.class
 com\niit\test\UserTestCase.class
-com\niit\test\CartTestCase.class

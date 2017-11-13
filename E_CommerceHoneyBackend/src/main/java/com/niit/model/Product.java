@@ -1,11 +1,6 @@
 package com.niit.model;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
-import javax.persistence.Table;
-import javax.persistence.Transient;
+import javax.persistence.*;
 
 import org.springframework.stereotype.Component;
 import org.springframework.web.multipart.MultipartFile;
@@ -23,7 +18,6 @@ public class Product
 	private double price;
 	private int quantity;
 
-	// We need to specify many-to-one
 	private String category_id;
 
 	private String supplier_id;
@@ -138,8 +132,5 @@ public class Product
 	{
 		this.image = image;
 	}
-
-	
-	
 
 }
