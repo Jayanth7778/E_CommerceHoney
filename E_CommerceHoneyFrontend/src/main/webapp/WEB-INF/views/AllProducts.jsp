@@ -25,7 +25,7 @@
 	</div>
 					
 	<div class="panel-body">
-		<img height="220px" width="250px" src="<c:url value="/resources/Images/${product.id}.jpg" />" alt="${product.name}" />
+		<img height="220px" width="250px" src="<c:url value="/resources/images/${product.id}.jpg" />" alt="${product.name}" />
 	</div>					
 	<div class="panel-footer">
 	<div class="row">
@@ -39,7 +39,7 @@
 
 	<c:if test="${isUserLoggedIn=='true'}">
 		<a href="myCart-add/${product.id}" class="btn btn-success">Add to cart <i class="fa fa-cart-plus" aria-hidden="true"></i> 
-		<img src="<c:url value="/resources/Carousel-Images/cart.gif" />" alt="Cart GIF" style="width:45%; class="img-responsive center-block" />
+		<img src="<c:url value="/resources/Carousel-Images/cart.gif" />" alt="Cart GIF" style="width:25%; class="img-responsive center-block" />
 		</a>
 	</c:if>
 									

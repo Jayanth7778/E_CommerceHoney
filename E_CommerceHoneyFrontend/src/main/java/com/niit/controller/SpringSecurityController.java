@@ -25,8 +25,9 @@ import com.niit.model.Product;
 import com.niit.model.Supplier;
 
 @Controller
-public class SpringSecurityController 
+public class SpringSecurityController
 {
+
 	public static Logger log = LoggerFactory.getLogger(SpringSecurityController.class);
 
 	@Autowired
@@ -55,11 +56,10 @@ public class SpringSecurityController
 	private My_Cart myCart;
 
 	@RequestMapping(value = "/loginError", method = RequestMethod.GET)
-	public String loginError(Model model)
+	public String loginError(Model model) 
 	{
 		log.debug("Starting of the method loginError");
 		session.setAttribute("errorLoginMessage", "Invalid Credentials.  Please try again.");
-			
 		log.debug("Ending of the method loginError");
 		return "redirect:/Login";
 	}
@@ -72,6 +72,7 @@ public class SpringSecurityController
 
 		log.debug("Ending of the method accessDenied");
 		return "Home";
+
 	}
 
 	@RequestMapping(value = "/checkRole", method = RequestMethod.GET)
@@ -83,13 +84,14 @@ public class SpringSecurityController
 
 		mv.addObject("categoryList", categoryDAO.list());
 		mv.addObject("category", category);
+
 		mv.addObject("supplierList", supplierDAO.list());
-		mv.addObject("supplier", supplier);		
+		mv.addObject("supplier", supplier);
+		
 		mv.addObject("productList", productDAO.list());
-		mv.addObject("product", product);		
+		mv.addObject("product", product);
 		
 		String userID = auth.getName();
-		
 		session.setAttribute("loggedInUser", userID);
 		session.setAttribute("loggedInUserID", userID);
 
@@ -97,33 +99,30 @@ public class SpringSecurityController
 		{
 			log.debug("You are admin");
 			mv.addObject("isAdmin", "true");
-			
 			session.setAttribute("role", "ROLE_ADMIN");
 			session.setAttribute("isAdmin", true);
-			
 			mv.addObject("isUserAtHomePage", "false");
+
 		} 
-		else 
+		else
 		{
 			log.debug("You are a customer");
-			
 			session.setAttribute("isAdmin", false);
 			session.setAttribute("isUserLoggedIn", "true");
 			session.setAttribute("myCart", myCart);
-			
 			mv.addObject("isAdmin", "false");
-			
 			session.setAttribute("role", "ROLE_USER");
 			session.setAttribute("isUserLoggedIn", "true");
 			session.setAttribute("loggedInUserID",userID);
-			
 			String loggedInUserID = (String) session.getAttribute("loggedInUserID");
-			
 			int cartSize = cartDAO.list(loggedInUserID).size();
 			session.setAttribute("cartSize", cartSize);
-			
 			mv.addObject("isUserAtHomePage", "true");
+			
 		}
+		
+		String loggedInUserID = (String) session.getAttribute("loggedInUserID");
+		mv.addObject("Username", loggedInUserID);
 		
 		log.debug("Ending of the method validate");
 		return mv;
@@ -132,16 +131,18 @@ public class SpringSecurityController
 	@RequestMapping("/secure_logout")
 	public ModelAndView secureLogout()
 	{
-		
 		session.invalidate();
 
 		ModelAndView mv = new ModelAndView("redirect:/Login");
 
-		session.setAttribute("category", category); // domain object names
+		session.setAttribute("category", category); 
 		session.setAttribute("product", product);
 		session.setAttribute("supplier", supplier);
+
 		session.setAttribute("categoryList", categoryDAO.list());
+
 		session.setAttribute("supplierList", supplierDAO.list());
+
 		session.setAttribute("productList", productDAO.list());
 
 		return mv;

@@ -22,6 +22,7 @@
 	<div class="collapse navbar-collapse" id="navbar-collapse">
 		<ul class="nav navbar-nav navbar-right">			
 			<c:if test="${isUserLoggedIn=='true'}"> 
+				<li><a href="userInfo"><i class="fa fa-user" aria-hidden="true"></i> ${Username}</a></li>
 				<li><a href="myCart"><i class="fa fa-shopping-cart" aria-hidden="true"></i> My Cart <span class="label label-info">${cartSize}</span></a></li>
 				<li><a href="secure_logout"><i class="fa fa-sign-out" aria-hidden="true"></i> Log Out </a></li>
 			</c:if>
@@ -49,7 +50,6 @@
 				</li>
 			</c:forEach>
 				<li><a href="ContactUs"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Contact Us </a></li>
-
 		</ul>
 		</div>
 		</div>

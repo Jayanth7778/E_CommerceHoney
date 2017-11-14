@@ -46,7 +46,6 @@ public class ContactUsController
 		@RequestMapping("/manage-contactus-delete/{id}")
 		public ModelAndView deleteContactUs(@PathVariable("id") int id)
 		{
-			
 			log.debug("Starting of delete Contact Us Message");
 			log.info("You are about to delete a contact us request with id : " + id);
 			

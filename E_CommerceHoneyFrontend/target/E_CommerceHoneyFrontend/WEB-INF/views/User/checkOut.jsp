@@ -21,6 +21,6 @@
 		<br>
 		<img src="<c:url value="/resources/Carousel-Images/Visit again.gif" />" alt="Visit again GIF" class="img-responsive center-block" />
 	</div>
-	
 </body>
+
 </html>
