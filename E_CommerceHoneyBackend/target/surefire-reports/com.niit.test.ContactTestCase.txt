@@ -1,4 +1,4 @@
 -------------------------------------------------------------------------------
 Test set: com.niit.test.ContactTestCase
 -------------------------------------------------------------------------------
-Tests run: 3, Failures: 0, Errors: 0, Skipped: 3, Time elapsed: 2.653 sec
+Tests run: 3, Failures: 0, Errors: 0, Skipped: 3, Time elapsed: 1.775 sec

@@ -1,4 +1,5 @@
 com\niit\dao\UserDAO.class
+com\niit\dao\My_CartDAO.class
 com\niit\model\Product.class
 com\niit\dao\AddressDAO.class
 com\niit\daoimpl\ProductDAOImpl.class
@@ -18,5 +19,7 @@ com\niit\model\OrderTable.class
 com\niit\dao\ProductDAO.class
 com\niit\daoimpl\ContactDAOImpl.class
 com\niit\dao\ContactDAO.class
+com\niit\daoimpl\My_CartDAOImpl.class
 com\niit\daoimpl\CategoryDAOImpl.class
 com\niit\daoimpl\UserDAOImpl.class
+com\niit\model\My_Cart.class

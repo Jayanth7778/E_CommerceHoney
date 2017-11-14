@@ -1,4 +1,4 @@
 -------------------------------------------------------------------------------
 Test set: com.niit.test.AddressTestCase
 -------------------------------------------------------------------------------
-Tests run: 3, Failures: 0, Errors: 0, Skipped: 2, Time elapsed: 12.562 sec
+Tests run: 3, Failures: 0, Errors: 0, Skipped: 2, Time elapsed: 9.169 sec

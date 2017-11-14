@@ -2,6 +2,7 @@ com\niit\test\AddressTestCase.class
 com\niit\test\CategoryTestCase.class
 com\niit\test\ContactTestCase.class
 com\niit\test\OrderTableTestCase.class
+com\niit\test\My_CartTestCase.class
 com\niit\test\ProductTestCase.class
 com\niit\test\SupplierTestCase.class
 com\niit\test\UserTestCase.class
