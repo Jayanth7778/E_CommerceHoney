@@ -36,10 +36,10 @@ public class CartController
 	HttpSession session;
 
 	@RequestMapping("/myCart")
-	public String myCart(Model model) 
+	public String myCart(Model model)
 	{
 		log.debug("Starting of myCart in CartController");
-
+		//model.addAttribute("myCart", myCart);
 		String loggedInUserID = (String) session.getAttribute("loggedInUserID");
 
 		if (loggedInUserID != null)
@@ -48,9 +48,9 @@ public class CartController
 
 			if (cartSize == 0)
 			{
-				model.addAttribute("errorMessage", "You do not have any products in your cart!");
-			}
-			else 
+				model.addAttribute("errorMessage", "You do not have any products in your cart! ");
+			} 
+			else
 			{
 				model.addAttribute("cart", myCart);
 				model.addAttribute("cartList", myCartDAO.list(loggedInUserID));
@@ -63,7 +63,10 @@ public class CartController
 				session.setAttribute("cartSize", cartSize);
 				session.setAttribute("isAdmin", "false");
 				session.setAttribute("cart", myCart);
+				// session.setAttribute("isUserAtHomePage", "false");
+				// System.out.println(totalAmount);
 			}
+
 		}
 
 		log.debug("Ending of myCart in CartController");
@@ -76,25 +79,21 @@ public class CartController
 		log.debug("Starting of addToCart in CartController");
 
 		Product product = productDAO.getProductById(id);
-
 		myCart.setProduct_name(product.getName());
 		myCart.setPrice(product.getPrice());
 
 		String loggedInUserID = (String) session.getAttribute("loggedInUserID");
-
 		myCart.setUser_id(loggedInUserID);
 		myCart.setStatus("N");
 		myCart.setQuantity(1);
 		myCart.setDate_added(new Date(System.currentTimeMillis()));
-		
 		session.setAttribute("isAdmin", "false");
-		
 		myCartDAO.save(myCart);
 
 		ModelAndView mv = new ModelAndView("redirect:/Home");
+		mv.addObject("successMessage", "Successfully added product to your cart. ");
 		
-		mv.addObject("successMessage", "Successfully added product to your cart");
-		session.setAttribute("successMessage", "Successfully added product to your cart");
+		session.setAttribute("successMessage", "Successfully added product to your cart. ");
 		
 		int cartSize = myCartDAO.list(loggedInUserID).size();
 		session.setAttribute("cartSize", cartSize);
@@ -105,20 +104,19 @@ public class CartController
 	}
 
 	@RequestMapping("/myCart-delete/{id}")
-	public ModelAndView removeFromCart(@PathVariable("id") int id) 
+	public ModelAndView removeFromCart(@PathVariable("id") int id)
 	{
 		log.debug("Starting of removeFromCart in CartController");
-
 		ModelAndView mv = new ModelAndView("redirect:/myCart");
+
 		if (myCartDAO.delete(id) == true)
 		{
-			mv.addObject("cartMessage", "Successfullly deleted from cart");
+			mv.addObject("cartMessage", "Successfullly deleted from cart. ");
 		} 
 		else
 		{
-			mv.addObject("cartMessage", "Failed to delete from cart");
+			mv.addObject("cartMessage", "Failed to delete from cart. ");
 		}
-		
 		String loggedInUserID = (String) session.getAttribute("loggedInUserID");
 		
 		int cartSize = myCartDAO.list(loggedInUserID).size();
@@ -133,12 +131,60 @@ public class CartController
 	public ModelAndView removeAllProductsFromCart(@PathVariable("user_id") String id)
 	{
 		log.debug("Starting of removeAllProductsFromCart in CartController");
-
 		ModelAndView mv = new ModelAndView("redirect:/Home");
 
 		if (myCartDAO.deleteAllProductsInCart(id) == true)
 		{
-			mv.addObject("cartMessage", "Successfully deleted cart");
+			mv.addObject("cartMessage", "Successfully deleted cart. ");
+			String loggedInUserID = (String) session.getAttribute("loggedInUserID");
+
+			int cartSize = myCartDAO.list(loggedInUserID).size();
+			session.setAttribute("cartSize", cartSize);
+		} 
+		else
+		{
+			mv.addObject("cartMessage", "Failed to delete cart. ");
+		}
+
+		log.debug("Ending of removeFromCart in CartController. ");
+		return mv;
+
+	}
+/*
+	@RequestMapping("myCart-checkOut/{user_id}")
+	public ModelAndView cartCheckout(@PathVariable("user_id") String id)
+	 {
+		log.debug("Starting of cartCheckout in CartController");
+		ModelAndView mv = new ModelAndView("redirect:/myCart-checkOut");
+		if (myCartDAO.deleteAllProductsInCart(id) == true)
+		 {
+			session.setAttribute("isUserCheckedOut", "true");
+			mv.addObject("isUserCheckedOut", "true");
+			session.setAttribute("isUserAtHomePage", "false");
+			String loggedInUserID = (String) session.getAttribute("loggedInUserID");
+			int cartSize = myCartDAO.list(loggedInUserID).size();
+			session.setAttribute("cartSize", cartSize);
+		} 
+		else 
+		{
+			mv.addObject("cartMessage", "Failed to checkout");
+		}
+		log.debug("Ending of cartCheckout in CartController");
+		return mv;
+	}
+	*/
+	
+	@RequestMapping("/myCart-checkOut/{user_id}")
+	public String cartCheckout(@PathVariable("user_id") String id, Model model)
+	{
+		log.debug("Starting of cartCheckout in CartController");
+
+		if (myCartDAO.checkOut(id) == true)
+		{
+			//session.setAttribute("isUserCheckedOut", "true");
+			model.addAttribute("isUserCheckedOut", "true");
+			
+			session.setAttribute("isUserAtHomePage", "false");
 			String loggedInUserID = (String) session.getAttribute("loggedInUserID");
 
 			int cartSize = myCartDAO.list(loggedInUserID).size();
@@ -146,54 +192,7 @@ public class CartController
 		} 
 		else 
 		{
-			mv.addObject("cartMessage", "Failed to delete cart");
-		}
-
-		log.debug("Ending of removeFromCart in CartController");
-		return mv;
-
-	}
-/*
-	@RequestMapping("myCart-checkOut/{user_id}")
-	public ModelAndView cartCheckout(@PathVariable("user_id") String id) {
-		log.debug("Starting of cartCheckout in CartController");
-
-		ModelAndView mv = new ModelAndView("redirect:/myCart-checkOut");
-		// Check whether products are there for this category or not
-		if (myCartDAO.deleteAllProductsInCart(id) == true) {
-			session.setAttribute("isUserCheckedOut", "true");
-			mv.addObject("isUserCheckedOut", "true");
-			session.setAttribute("isUserAtHomePage", "false");
-			String loggedInUserID = (String) session.getAttribute("loggedInUserID");
-
-			int cartSize = myCartDAO.list(loggedInUserID).size();
-			session.setAttribute("cartSize", cartSize);
-		} else {
-			mv.addObject("cartMessage", "Failed to checkout");
-		}
-
-		log.debug("Ending of cartCheckout in CartController");
-		return mv;
-
-	}
-	*/
-	@RequestMapping("/myCart-checkOut/{user_id}")
-	public String cartCheckout(@PathVariable("user_id") String id, Model model)
-	{
-		log.debug("Starting of cartCheckout in CartController");
-
-		if (myCartDAO.deleteAllProductsInCart(id) == true)
-		{
-			model.addAttribute("isUserCheckedOut", "true");
-			session.setAttribute("isUserAtHomePage", "false");
-			String loggedInUserID = (String) session.getAttribute("loggedInUserID");
-
-			int cartSize = myCartDAO.list(loggedInUserID).size();
-			session.setAttribute("cartSize", cartSize);
-		}
-		else 
-		{
-			model.addAttribute("cartMessage", "Failed to checkout");
+			model.addAttribute("cartMessage", "Failed to checkout. ");
 		}
 
 		log.debug("Ending of cartCheckout in CartController");
@@ -204,9 +203,7 @@ public class CartController
 	public String viewProductHome(Model model)
 	{
 		model.addAttribute("isUserCheckedOut", "true");
-		return "Home";
-		
+		return "Home";	
 	}
 	
-
 }
