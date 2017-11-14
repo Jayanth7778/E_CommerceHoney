@@ -33,7 +33,6 @@ public class DBConfig
 	@Bean(name = "dataSource")
 	public DataSource getH2DataSource()
 	{
-
 		DriverManagerDataSource dataSource = new DriverManagerDataSource();
 
 		dataSource.setUrl("jdbc:h2:tcp://localhost/~/honey");
@@ -44,10 +43,8 @@ public class DBConfig
 		return dataSource;
 	}
 
-	
 	private Properties getHibernateProperties()
 	{
-		
 		Properties properties = new Properties();
 		
 		properties.put("hibernate.dialect", "org.hibernate.dialect.H2Dialect");
@@ -62,7 +59,6 @@ public class DBConfig
 	
 	public SessionFactory getSessionFactory(DataSource dataSource)
 	{
-
 		LocalSessionFactoryBuilder sessionBuilder = new LocalSessionFactoryBuilder(dataSource);
 		
 		sessionBuilder.addProperties(getHibernateProperties());
@@ -82,10 +78,8 @@ public class DBConfig
 
 	@Autowired
 	@Bean(name = "transactionManager")
-	
 	public HibernateTransactionManager getTransactionManager(SessionFactory sessionFactory)
-	{
-		
+	{		
 		HibernateTransactionManager transactionManager = new HibernateTransactionManager(sessionFactory);
 
 		return transactionManager;
