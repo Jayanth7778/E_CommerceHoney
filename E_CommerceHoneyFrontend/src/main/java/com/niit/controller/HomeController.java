@@ -57,8 +57,7 @@ public class HomeController
 	@RequestMapping("/")
 	public ModelAndView goToHome()
 	{
-		ModelAndView mv = new ModelAndView("Home");
-		
+		ModelAndView mv = new ModelAndView("Home");	
 		mv.addObject("message", "Welcome to Online Honey Cart! <br>");
 		mv.addObject("isUserAtHomePage", "true");
 		
@@ -77,14 +76,11 @@ public class HomeController
 		return mv;
 	}
 
-	
-
 	@RequestMapping("/Home")
 	public ModelAndView goToHomeButton()
 	{
-		ModelAndView mv = new ModelAndView("Home");
-		
-		mv.addObject("message", "Welcome to Online Shopping Cart! <br>");
+		ModelAndView mv = new ModelAndView("Home");	
+		mv.addObject("message", "Welcome to Online Honey Cart! <br>");
 		mv.addObject("isUserAtHomePage", "true");
 		
 		List<Category> categoryList = categoryDAO.list();
@@ -121,7 +117,6 @@ public class HomeController
 		log.debug("Signout Initiated");
 		
 		ModelAndView mv = new ModelAndView("redirect:/");
-		
 		session.setAttribute("isUserLoggedIn", "false");
 		session.setAttribute("isAdmin", "false");
 
@@ -140,8 +135,7 @@ public class HomeController
 	@RequestMapping("/MainPage")
 	public String mainPage(Model model) 
 	{
-		model.addAttribute("isUserClickedMain", "true");
-		
+		model.addAttribute("isUserClickedMain", "true");	
 		return "Home";
 	}
 

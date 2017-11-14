@@ -33,13 +33,11 @@ public class AdminController
 
 	private static Logger log = LoggerFactory.getLogger(AdminController.class); 
 	
-
 	@RequestMapping("/manageCategories")
 	public ModelAndView manageCategories()
 	{
 		log.debug("Starting of the method manageCategories");
 		ModelAndView mv = new ModelAndView("Home");
-		
 		mv.addObject("isAdminClickedCategories", "true");
 		mv.addObject("isAdmin", "true");
 		
@@ -56,8 +54,7 @@ public class AdminController
 	public ModelAndView manageSuppliers()
 	{
 		log.debug("Ending of the method manageSuppliers");
-		ModelAndView mv = new ModelAndView("Home");
-		
+		ModelAndView mv = new ModelAndView("Home");		
 		mv.addObject("isAdminClickedSuppliers", "true");
 		mv.addObject("isAdmin", "true");
 		
@@ -88,15 +85,11 @@ public class AdminController
 		return "Home";
 	}*/
 
-	
-	
-	
 	@RequestMapping("/manageContactUs")
 	public ModelAndView manageContactUs()
 	{
 		log.debug("Starting of the method manageContactUs");
 		ModelAndView mv = new ModelAndView("Home");
-		
 		mv.addObject("isAdminClickedContactUs", "true");
 		mv.addObject("isAdmin", "true");
 		
@@ -104,7 +97,6 @@ public class AdminController
 		session.setAttribute("contact", contact);
 		
 		log.debug("Ending of the method manageContactUs");
-		
 		return mv;
 	}
 }
