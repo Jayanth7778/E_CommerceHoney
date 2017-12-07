@@ -5,8 +5,7 @@ import java.util.List;
 import com.niit.model.User;
 
 public interface UserDAO
-{
-		
+{	
 	public  boolean save(User user);
 	
 	public boolean update(User user);
@@ -15,6 +14,5 @@ public interface UserDAO
 		
 	public List<User> list();
 		
-	public User get(String id);
-	
+	public User get(String id);	
 }

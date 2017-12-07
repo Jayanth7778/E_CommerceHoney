@@ -1,5 +1,6 @@
 package com.niit.controller;
 
+import java.util.List;
 import javax.servlet.http.HttpSession;
 
 import org.slf4j.Logger;
@@ -7,10 +8,12 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
@@ -26,7 +29,7 @@ import com.niit.util.FileUtil;
 import com.niit.util.Util;
 
 @Controller
-public class ProductController
+public class ProductController 
 {
 	private static Logger log = LoggerFactory.getLogger(ProductController.class);
 
@@ -51,12 +54,13 @@ public class ProductController
 	@Autowired
 	HttpSession session;
 
-	private String path = "//D://Jay//All workspaces//ECommerceHoney//E_CommerceHoneyFrontend//src//main//webapp//resources//images";
+	private String path = "\\D:\\Jay\\All workspaces\\ECommerceHoney\\E_CommerceHoneyFrontend\\src\\main\\webapp\\resources\\images";
 	
 	@PostMapping("/manage-product-add")
-	public String addPorduct(@ModelAttribute("product") Product product, @RequestParam("image") MultipartFile file,
-			Model model) {
+	public String addPorduct(@ModelAttribute("product") Product product, @RequestParam("image") MultipartFile file,	Model model)
+	{
 		log.debug("Starting of method addProduct");
+		
 		Category category = categoryDAO.getCategoryByName(product.getCategory().getName());
 		Supplier supplier = supplierDAO.getSupplierByName(product.getSupplier().getName());
 
@@ -69,11 +73,10 @@ public class ProductController
 		product.setId(Util.removeComman(product.getId()));
 		productDAO.saveOrUpdate(product);
 
-		FileUtil.upload(path, file, product.getId() + ".jpg");
+		FileUtil.upload(path, file, product.getId() + ".jpeg");
 
 		model.addAttribute("isAdminClickedProducts", "true");
 		model.addAttribute("isAdmin", "true");
-
 		model.addAttribute("productList", this.productDAO.list());
 		model.addAttribute("product", new Product());
 		model.addAttribute("categoryList", this.categoryDAO.list());
@@ -84,8 +87,10 @@ public class ProductController
 	}
 
 	@RequestMapping("/manageProducts")
-	public String manageProducts(Model model) {
+	public String manageProducts(Model model)
+	{
 		log.debug("Starting of the method manageProducts");
+		
 		model.addAttribute("isAdminClickedProducts", "true");
 		model.addAttribute("isAdmin", "true");
 		model.addAttribute("product", product);
@@ -94,34 +99,41 @@ public class ProductController
 		model.addAttribute("supplierList", supplierDAO.list());
 		model.addAttribute("category", category);
 		model.addAttribute("categoryList", categoryDAO.list());
+		
 		session.setAttribute("isUserLoggedIn", "false");
 		log.debug("Ending of the method manageProducts");
 		return "Home";
 	}
 	
 	@RequestMapping("/viewProduct")
-	public String viewProductHome(Model model) {
+	public String viewProductHome(Model model)
+	{
 		model.addAttribute("isUserSelectedProduct", "true");
-		String loggedInUserID = (String) session.getAttribute("loggedInUserID");
-		model.addAttribute("Username", loggedInUserID);
 		return "Home";
 		
 	}
 	
 	@RequestMapping("/viewProduct/{id}")
-	public String viewProduct(@PathVariable("id") String id, Model model) {
+	public String viewProduct(@PathVariable("id") String id, Model model) 
+	{
 		session.setAttribute("selectedProduct", productDAO.getProductById(id));
 		return "redirect:/viewProduct";
 	}
 
 	@RequestMapping("/manage-product-delete/{id}")
-	public String deleteProduct(@PathVariable("id") String id, Model model) {
+	public String deleteProduct(@PathVariable("id") String id, Model model)
+	{
 		log.debug("Starting of the method deleteProduct");
-		try {
+		try
+		{
 			productDAO.delete(id);
-			model.addAttribute("message", "Successfully deleted");
-		} catch (Exception e) {
-			model.addAttribute("message", e.getMessage());
+			model.addAttribute("successMessage", "Successfully deleted. ");
+			session.setAttribute("successMessage", "Successfully deleted. ");
+		} 
+		catch (Exception e) 
+		{
+			model.addAttribute("errorMessage", e.getMessage());
+			session.setAttribute("errorMessage", e.getMessage());
 			e.printStackTrace();
 		}
 		log.debug("ending of method deleteProduct");
@@ -129,39 +141,49 @@ public class ProductController
 
 	}
 
-	
 	@RequestMapping("/manage-product-edit/{id}")
-	public String editProduct(@PathVariable("id") String id, Model model) {
+	public String editProduct(@PathVariable("id") String id, Model model)
+	{
 		log.debug("Starting of the method editProduct");
 		product = productDAO.getProductById(id);
+		
 		model.addAttribute("product", product);
+		
 		log.debug("Ending of the method editProduct");
 		return "redirect:/manageProducts";
 	}
 
 	@RequestMapping("/manage-product-get/{id}")
-	public ModelAndView getSelectedProduct(@PathVariable("id") String id, RedirectAttributes redirectAttributes) {
+	public ModelAndView getSelectedProduct(@PathVariable("id") String id, RedirectAttributes redirectAttributes)
+	{
 		log.debug("Starting of the method getSelectedProduct");
 		ModelAndView mv = new ModelAndView("redirect:/");
+		
 		redirectAttributes.addFlashAttribute("selectedProduct", productDAO.getProductById(id));
+		
 		log.debug("ending of method getSelectedProduct");
 		return mv;
 	}
 	
 	@RequestMapping("/showProductByCategory/{category_id}")
-	public String showProductByCategory(@PathVariable("category_id") String category_id, Model model){
-			session.setAttribute("selectedCategoryProducts", productDAO.getAllProductsByCategoryId(category_id));
-			session.setAttribute("product",product);
-			model.addAttribute("isUserClickedProductByCategory", "true");
-			String loggedInUserID = (String) session.getAttribute("loggedInUserID");
-			model.addAttribute("Username", loggedInUserID);
+	public String showProductByCategory(@PathVariable("category_id") String category_id, Model model)
+	{
+		session.setAttribute("selectedCategoryProducts", productDAO.getAllProductsByCategoryId(category_id));
+		session.setAttribute("product",product);
+		
+		model.addAttribute("isUserClickedProductByCategory", "true");
+		String loggedInUserID = (String) session.getAttribute("loggedInUserID");
+		
+		model.addAttribute("Username", loggedInUserID);
 		return "redirect:/productByCategory";
 	}
 	
 	@RequestMapping("/productByCategory")
-	public String productByCategory(Model model){
+	public String productByCategory(Model model)
+	{
 		model.addAttribute("isUserClickedProductByCategory", "true");
 		String loggedInUserID = (String) session.getAttribute("loggedInUserID");
+		
 		model.addAttribute("Username", loggedInUserID);
 		return "Home";
 

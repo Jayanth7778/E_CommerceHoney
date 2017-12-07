@@ -28,19 +28,22 @@
 				<td>Date Added</td>
 				<td>Quantity</td>
 				<td>Price (Rs)</td>
+				<td>Total</td>
 				<td>Action</td>
 			</tr>		
 		</thead>
-				
-		<c:forEach var="cart" items="${cartList}">
+		
+		<tbody>				  
+		<c:forEach var="cart" varStatus="st" items="${cartList}">
 		<tr>
-			<td>${cart.product_name}</td>
+			<td><c:out value="${cart.product_name}"></c:out></td>
 			<td><fmt:formatDate pattern="dd/MM/yyyy" value="${cart.date_added}" /></td>
-			<td>${cart.quantity}</td>
-			<td>${cart.price}</td>
+			<td><c:out value="${cart.quantity}"></c:out></td>
+			<td><c:out value="${cart.price}"></c:out></td>
 			<td><a href="myCart-delete/${cart.id}" class="btn btn-danger">Remove</a></td>
 		</tr>			
 		</c:forEach>
+		</tbody>
 		<hr />		
 		<tr>
 			<td><a href="Home" class="btn btn-warning">Continue Shopping</a></td>

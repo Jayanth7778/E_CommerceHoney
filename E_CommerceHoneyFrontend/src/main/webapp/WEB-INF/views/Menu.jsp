@@ -13,7 +13,9 @@
 	<div class="container-fluid">
 	<div class="navbar-header">
 		<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse">
-		<span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span>
+		<span class="icon-bar"></span> 
+		<span class="icon-bar"></span>
+		<span class="icon-bar"></span>
 		</button>	
 		<a href="Home" class="navbar-brand">
 			<img src="<c:url value="/resources/Carousel-Images/design-logo.jpg"/>" style="max-height: 50px; margin-top: -15px;" alt="logo" />

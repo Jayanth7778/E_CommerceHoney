@@ -23,7 +23,7 @@
 	<div class="h3">${product.name}</div>
 	</div>
 	<div class="panel-body">
-		<img height="220px" width="250px" src="<c:url value="/resources/Images/${product.id}.jpg" />" alt="${product.name}" />
+		<img height="220px" width="250px" src="<c:url value="/resources/images/${product.id}.jpg" />" alt="${product.name}" />
 	</div>
 	<div class="panel-footer">
 	<div class="row">

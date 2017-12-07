@@ -25,7 +25,6 @@ public class My_Cart
 	private Date date_added;
 	private String status;
 
-	
 	public int getId()
 	{
 		return id;
