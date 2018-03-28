@@ -47,7 +47,6 @@ public class UserController
 	@Autowired
 	Supplier supplier;
 	
-
 	@RequestMapping("/validate")
 	public ModelAndView login(@RequestParam("id") String id, @RequestParam("password") String password) 
 	{

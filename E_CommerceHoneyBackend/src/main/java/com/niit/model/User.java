@@ -7,8 +7,6 @@ import javax.persistence.Table;
 
 import org.springframework.stereotype.Component;
 
-
-
 @Entity 
 @Table(name="User")
 @Component 
@@ -24,7 +22,6 @@ public class User
 	private String password;
 	private String contact;
 	private String role;
-	
 	
 	public String getId() 
 	{

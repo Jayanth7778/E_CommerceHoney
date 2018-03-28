@@ -63,7 +63,7 @@ public class UserDAOImpl implements UserDAO
 		query.setString(0, id);    
 		query.setString(1, password);
 	
-	 if(  query.uniqueResult()  == null)
+	 if(query.uniqueResult()  == null)
 	 {
 		 return false;
 	 }

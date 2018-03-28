@@ -28,8 +28,7 @@ import com.niit.model.User;
 @EnableTransactionManagement
 
 public class DBConfig
-{
-
+{	
 	@Bean(name = "dataSource")
 	public DataSource getH2DataSource()
 	{
@@ -47,16 +46,15 @@ public class DBConfig
 	{
 		Properties properties = new Properties();
 		
-		properties.put("hibernate.dialect", "org.hibernate.dialect.H2Dialect");
-		properties.put("hibernate.show_sql", "true");
-		properties.put("hibernate.hbm2ddl.auto", "update");
+		properties.put("hibernate.dialect", "org.hibernate.dialect.H2Dialect"); //declare which dialect we use
+		properties.put("hibernate.show_sql", "true"); //used to show sql commands in console
+		properties.put("hibernate.hbm2ddl.auto", "update"); //used to store table automatically
 		
 		return properties;
 	}
 
 	@Autowired
 	@Bean(name = "sessionFactory")
-	
 	public SessionFactory getSessionFactory(DataSource dataSource)
 	{
 		LocalSessionFactoryBuilder sessionBuilder = new LocalSessionFactoryBuilder(dataSource);

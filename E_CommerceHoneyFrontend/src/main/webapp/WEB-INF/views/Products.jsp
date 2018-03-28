@@ -39,6 +39,7 @@
 	<a href="myCart-add/${product.id}" class="btn btn-success">
 		Add to cart <i class="fa fa-cart-plus" aria-hidden="true"></i>
 	</a>
+	Quentity  <input type="text" name="qty" size=6> 
 	</c:if>
 	<c:if test="${isAdmin=='true'}">
 	<a href="secure_logout" class="btn btn-success">

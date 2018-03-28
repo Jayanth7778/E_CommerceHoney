@@ -7,52 +7,48 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
 </head>
-
 <body>
 	<div class="container">
-	<div id="viewCart">		
-	<div class="container">
-	<div class="row">
-	<div class="col-md-8">
-	<div class="h3">My Cart</span></div>
-	</div>				
-	<div class="col-md-4">
-		<td><a href="myCart-deleteAll/${cart.user_id}" class="btn btn-danger">Remove All Products</a></td>
-	</div>				
-	</div>
-	</div>
-		<table class="table table-striped">
-		<thead>		
-			<tr>
-				<td>Product</td>
-				<td>Date Added</td>
-				<td>Quantity</td>
-				<td>Price (Rs)</td>
-				<td>Total</td>
-				<td>Action</td>
-			</tr>		
-		</thead>
-		
-		<tbody>				  
-		<c:forEach var="cart" varStatus="st" items="${cartList}">
-		<tr>
-			<td><c:out value="${cart.product_name}"></c:out></td>
-			<td><fmt:formatDate pattern="dd/MM/yyyy" value="${cart.date_added}" /></td>
-			<td><c:out value="${cart.quantity}"></c:out></td>
-			<td><c:out value="${cart.price}"></c:out></td>
-			<td><a href="myCart-delete/${cart.id}" class="btn btn-danger">Remove</a></td>
-		</tr>			
-		</c:forEach>
-		</tbody>
-		<hr />		
-		<tr>
-			<td><a href="Home" class="btn btn-warning">Continue Shopping</a></td>
-		<td></td>
-			<td>Total Rs. ${totalAmount}</td>
-			<td><a href="myCart-checkOut/${cart.user_id}" class="btn btn-success">Check Out</a></td>
-		</tr>
-		</table>	
+
+		<div id="viewCart">
+			
+			<div class="container">
+				<div class="row">
+					<div class="col-md-8">
+						<div class="h3">My Cart</span></div>
+					</div>
+					<div class="col-md-4">
+						<td><a href="myCart-deleteAll/${cart.user_id}" class="btn btn-danger">Delete All Products</a></td>
+					</div>
+				</div>
+			</div>
+			<table class="table table-striped">
+				<thead>
+					<tr>
+						<td>Product</td>
+						<td>Date Added</td>
+						<td>Price (Rs)</td>
+						<td>Action</td>
+					</tr>
+				</thead>
+				<c:forEach var="cart" items="${cartList}">
+					<tr>
+						<td>${cart.product_name}</td>
+						<td><fmt:formatDate pattern="dd/MM/yyyy" value="${cart.date_added}" /></td>
+						<td>${cart.price}</td>
+						<td><a href="myCart-delete/${cart.id}" class="btn btn-danger">Delete</a></td>
+					</tr>
+				</c:forEach>
+				<hr />
+				<tr>
+					<td><a href="Home" class="btn btn-warning">Continue Shopping</a></td>
+					<td></td>
+					<td>Total Rs. ${totalAmount}</td>
+					<td><a href="myCart-checkOut/${cart.user_id}" class="btn btn-success">Check Out</a></td>
+				</tr>
+
+			</table>
 		</div>
-		</div>
+	</div>
 </body>
 </html>
